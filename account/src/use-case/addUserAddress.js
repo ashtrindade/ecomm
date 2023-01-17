@@ -1,5 +1,3 @@
-import { accounts } from './accounts.js'
-
 let address = []
 export function createUserAddressUseCase(logradouro, numero, complemento, bairro, cep, cidade, uf){
     address = {
