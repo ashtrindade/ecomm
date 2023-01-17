@@ -1,1 +1,1 @@
-db.products.updateMany({"categoria.nome":"livros"}, {$set: {quantidadeEmEstoque: 0}})
+db.products.updateMany({"categoria.nome":"livros"}, {$set: {estoque: 0}})

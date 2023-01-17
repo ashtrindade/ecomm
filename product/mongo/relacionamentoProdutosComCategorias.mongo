@@ -5,11 +5,11 @@ db.categories.aggregate([
     {
         $project: {
             _id: 0,
-            produto: "$products.produto",
+            nome: "$products.nome",
             descricao: "$products.descricao",
             slug: "$products.slug",
             precoUnitario: "$products.precoUnitario",
-            quantidadeEmEstoque: "$products.quantidadeEmEstoque",
+            estoque: "$products.estoque",
             categoria: {
                 nome: "$nome",
                 status: "$status",
