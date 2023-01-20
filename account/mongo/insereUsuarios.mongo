@@ -1,0 +1,53 @@
+db.users.insertMany([
+  {
+    "name": "Joel Miller",
+    "email": "joel.miller@example.com",
+    "password": "40f2m@nF",
+    "createdDate": ISODate(),
+    "cpf": "95153544044",
+    "phone": "5511991699139",
+    "address": {          
+            "street": "Avenida Macambira",
+            "number": "781",
+            "neighborhood": "Residencial Jardim Leblon",
+            "complement": "Ap 205",
+            "zipCode": "74455366",
+            "city": "Goiânia",
+            "state": "GO"
+        }
+  },
+  {
+    "name": "Rhaenyra Targaryen",
+    "email": "rhae.targaryen@@example.com",
+    "password": "oDf&]XyA",
+    "createdDate": ISODate(),
+    "cpf": "43878699093",
+    "phone": "5564998743608",
+    "address": {
+            "street": "Rua Assis Bezerra",
+            "number": "109",
+            "neighborhood": "Álvaro Weyne",
+            "": null,
+            "zipCode": "60335360",
+            "city": "Fortaleza",
+            "state": "CE"
+    }
+  },
+  {
+    "name": "John MacTavish",
+    "email": "soap.mactavish@example.com",
+    "password": "a$AmbpSF",
+    "createdDate": ISODate(),
+    "cpf": "96092641070",
+    "phone": "5585995691407",
+    "address": {
+            "street": "Avenida Benedito Ferraz de Almeida Prado",
+            "number": "608",
+            "neighborhood": "Vila Real",
+            "": null,
+            "zipCode": "17208780",
+            "city": "Jaú",
+            "state": "SP"
+    }
+  }
+])
