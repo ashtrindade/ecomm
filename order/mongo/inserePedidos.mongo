@@ -1,0 +1,53 @@
+db.orders.insertMany([
+    {
+        "data": ISODate(),
+        "user": {"$oid": "63c7e51750236b4144c80e16"},
+        "itens": [
+            {
+                "id": {"$oid": "63c6e0ccd3393585e806702a"},
+                "nome": "Macbook Pro 16",
+                "quantidade": 1,
+                "precoUnitario": {"$numberDecimal": "31752"},
+                "desconto": 0
+            }
+        ],
+        "enderecoEntrega": {
+            "logradouro": "Avenida Benedito Ferraz de Almeida Prado",
+            "numero": "608",
+            "bairro": "Vila Real",
+            "complemento": null,
+            "cep": "17208780",
+            "cidade": "Jaú",
+            "uf": "SP"
+        }
+    },
+    {
+        "data": ISODate(),
+        "user": {"$oid": "63c7e51750236b4144c80e15"},
+        "itens": [
+            {
+                "id": {"$oid": "63c6e0ccd3393585e8067030"},
+                "nome": "Cama queen size",
+                "quantidade": 1,
+                "precoUnitario": {"$numberDecimal": "3100"},
+                "desconto": 0
+            },
+            {
+                "id": {"$oid": "63c6e0ccd3393585e806702e"},
+                "nome": "Sofá 3 lugares",
+                "quantidade": 1,
+                "precoUnitario": {"$numberDecimal": "2500"},
+                "desconto": 0 
+            }
+        ],
+        "enderecoEntrega": {
+            "logradouro": "Rua Assis Bezerra",
+            "numero": "109",
+            "bairro": "Álvaro Weyne",
+            "complemento": null,
+            "cep": "60335360",
+            "cidade": "Fortaleza",
+            "uf": "CE"
+        }
+    }
+])
