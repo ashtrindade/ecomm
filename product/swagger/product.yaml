@@ -1,0 +1,53 @@
+openapi: 3.0.3
+
+info:
+  version: 0.0.1
+  title: Ecomm Products API
+  description: |- 
+    ## Products Storage Management
+    
+    CRUD operations within the database.
+servers:
+  - url: https://63cfde3a109824043787c8de.mockapi.io/
+    description: MockAPI
+tags:
+  - name: default
+    description: Categories management
+  - name: admin
+    description: Admin Access
+
+paths:
+  /api/categories:
+    get:
+      summary: List all categories
+      responses: 
+        200:
+          description: Success
+          headers:
+            id:
+              schema: 
+                type: string
+            name:
+              schema:
+                type: string
+            status:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    status:
+                      type: string                      
+        404:
+          description: Categories not found
+          content: 
+            application/json:
+              example: "Not Found"
