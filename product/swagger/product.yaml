@@ -88,3 +88,46 @@ paths:
           content:
             application/json:
               example: "Access denied"
+
+  /api/categories/{id}:
+    parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+    get:
+      tags:
+        - default
+      summary: List category by ID
+      responses:
+        200:
+          description: Success
+          headers:
+            id:
+              schema: 
+                type: string
+            name:
+              schema:
+                type: string
+            status:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    status:
+                      type: string
+        404:
+          description: ID not found
+          content: 
+            application/json:
+              example: "Not Found"
