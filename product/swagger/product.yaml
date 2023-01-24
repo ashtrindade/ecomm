@@ -12,7 +12,7 @@ servers:
     description: MockAPI
 tags:
   - name: default
-    description: Categories management
+    description: Categories
   - name: admin
     description: Admin Access
 
@@ -51,3 +51,40 @@ paths:
           content: 
             application/json:
               example: "Not Found"
+
+  /api/admin/categories:
+    post:
+      tags:
+        - admin
+      summary: Create new category
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                status: 
+                  type: string
+      responses:
+        201:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    status:
+                      type: string                      
+        403: 
+          description: Forbiden
+          content:
+            application/json:
+              example: "Access denied"
