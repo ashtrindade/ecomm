@@ -6,14 +6,16 @@ info:
   description: |- 
     ## Products Storage Management
     
-    CRUD operations within the database.
-# servers:
-
+    CRUD operations within the database.  
 tags:
   - name: categories
     description: Categories usage
   - name: admin/categories
     description: Admin access to categories
+  - name: products
+    description: Products usage
+  - name: admin/products
+    description: Admin access to products
 
 paths:
   /api/categories:
@@ -66,9 +68,11 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/categoriesData"
+                  $ref: "#/components/schemas/Categories"
         403:
           $ref: "#/components/responses/403"
+        404:
+          $ref: "#/components/responses/404"
 
   /api/categories/{id}:
     parameters:
@@ -99,7 +103,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/categoriesData"
+                  $ref: "#/components/schemas/Categories"
         404:
           $ref: "#/components/responses/404"
 
@@ -132,7 +136,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/categoriesData"
+                  $ref: "#/components/schemas/Categories"
         404:
           $ref: "#/components/responses/404"
               
@@ -159,10 +163,157 @@ paths:
               example: "Status Updated"
         404:
           $ref: "#/components/responses/404"
-     
+
+  /api/products:
+    get:
+      tags:
+        - products
+      summary: List all products
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Products"
+        404:
+          $ref: "#/components/responses/404"
+
+  /api/products/{id}:
+    parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+    get:
+      tags:
+        - products
+      summary: List product by ID
+      responses:
+        200:
+          description: Success
+          headers:
+            id:
+              schema:
+                type: string
+            name:
+              schema:
+                type: string
+            description:
+              schema:
+                type: string
+            slug:
+              schema:
+                type: string
+            unitPrice:
+              schema:
+                type: integer
+            storage:
+              schema:
+                type: integer
+            categoryId:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Products"
+        404:
+          $ref: "#/components/responses/404"
+  /api/admin/products/:
+    post:
+      tags:
+        - admin/products
+      summary: Add new product
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                slug:
+                  type: string
+                unitPrice:
+                  type: integer
+                storage:
+                  type: integer
+                categoryId:
+                  type: string
+      responses:
+        201:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Products"                      
+        403: 
+          $ref: "#/components/responses/403"
+        404:
+          $ref: "#/components/responses/404"
+  /api/admin/products/{id}:
+    parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+
+    put:
+      tags:
+        - admin/products
+      summary: Update product data by ID
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                slug:
+                  type: string
+                unitPrice:
+                  type: integer
+                storage:
+                  type: integer
+                categoryId:
+                  type: string
+      responses:
+        200:
+          $ref: "#/components/responses/200"
+        
+        404:
+          $ref: "#/components/responses/404"
+
+    delete:
+      tags:
+        - admin/products
+      summary: Delete product by ID
+      responses:
+        200:
+          $ref: "#/components/responses/200"
+        204:
+          $ref: "#/components/responses/204"          
+        404:
+          $ref: "#/components/responses/404"
+
+
 components:
   schemas:
-    categoriesData:
+    Categories:
       type: object
       properties:
         id:
@@ -171,6 +322,33 @@ components:
           type: string
         status:
           type: string
+    Products:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: string
+          name:
+            type: string
+          description:
+            type: string
+          slug:
+            type: string
+          unitPrice:
+            type: integer
+          storage:
+            type: integer
+          categoryId:
+            type: string
+        required:
+          - id
+          - name
+          - description
+          - slug
+          - unitPrice
+          - storage
+          - categoryId
 
   responses:
     200:
@@ -178,6 +356,16 @@ components:
       content:
         application/json:
           example: "Success"
+    201:
+      description: Accepted
+      content:
+        application/json:
+          example: "Accepted"
+    204:
+      description: No content
+      content:
+        application/json:
+          example: "No content"           
     404:
       description: Not found
       content: 
