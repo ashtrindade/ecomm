@@ -7,18 +7,19 @@ info:
     ## Products Storage Management
     
     CRUD operations within the database.
-servers:
-  - url: https://63cfde3a109824043787c8de.mockapi.io/
-    description: MockAPI
+# servers:
+
 tags:
-  - name: default
-    description: Categories
-  - name: admin
-    description: Admin Access
+  - name: categories
+    description: Categories usage
+  - name: admin/categories
+    description: Admin access to categories
 
 paths:
   /api/categories:
     get:
+      tags:
+        - categories
       summary: List all categories
       responses: 
         200:
@@ -55,7 +56,7 @@ paths:
   /api/admin/categories:
     post:
       tags:
-        - admin
+        - admin/categories
       summary: Create new category
       requestBody:
         content:
@@ -98,7 +99,7 @@ paths:
         required: true
     get:
       tags:
-        - default
+        - categories
       summary: List category by ID
       responses:
         200:
@@ -131,3 +132,73 @@ paths:
           content: 
             application/json:
               example: "Not Found"
+
+  /api/admin/categories/{id}:
+    parameters:
+      - name: id
+        in: path
+        schema:
+         type: string
+        required: true
+    put:
+      tags:
+        - admin/categories
+      summary: Update category data by ID
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                status: 
+                  type: string
+      responses:
+        200:
+          description: Category Updated
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    status:
+                      type: string
+        404:
+          description: ID not found
+          content: 
+            application/json:
+              example: "ID Not Found"
+              
+    delete:
+      tags:
+        - admin/categories
+      summary: Delete category by ID
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              example: "Category deleted"
+
+    patch:
+      tags:
+        - admin/categories
+      summary: Update category status by ID
+      responses:
+        204:
+          description: Success
+          content:
+            application/json:
+              example: "Status Updated"
+        404:
+          description: ID not found
+          content: 
+            application/json:
+              example: "ID Not Found"                     
