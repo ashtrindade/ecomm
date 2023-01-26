@@ -41,7 +41,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#"
+                  $ref: "#/components/schemas/Categories"
         404:
           $ref: "#/components/responses/404"
 

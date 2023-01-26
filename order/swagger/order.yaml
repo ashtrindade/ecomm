@@ -1,0 +1,56 @@
+openapi: 3.0.3
+
+info:
+  version: 0.0.1
+  title: Ecomm Products API
+  description: |- 
+    ## Products Storage Management
+    
+    CRUD operations within the database.  
+tags:
+  - name: users
+    description: User accounts usage
+  - name: admin/users
+    description: Admin access to users
+servers:
+  - url: https://63cfde3a109824043787c8de.mockapi.io
+paths:
+  /api/users/:
+    get:
+      tags:
+        - users
+      summary: List all users
+      responses:
+        200:
+          $ref: "#/components/responses/200"
+
+  
+components:
+  #schemas:
+
+  responses:
+    200:
+      description: Success
+      content:
+        application/json:
+          example: "Success"
+    201:
+      description: Accepted
+      content:
+        application/json:
+          example: "Accepted"
+    204:
+      description: No content
+      content:
+        application/json:
+          example: "No content"           
+    404:
+      description: Not found
+      content: 
+        application/json:
+          example: "Not Found"
+    403:
+      description: Forbiden
+      content:
+        application/json:
+          example: "Access denied"
