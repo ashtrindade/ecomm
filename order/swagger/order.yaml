@@ -12,6 +12,10 @@ tags:
     description: User accounts usage
   - name: admin/users
     description: Admin access to users
+  - name: orders
+    description: Orders usage
+  - name: admin/orders
+    description: Admin access to orders
 paths:
   /api/users/:
     get:
@@ -27,7 +31,7 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/Users"
-        400:
+        404:
           $ref: "#/components/responses/404"
 
   /api/users/{id}:
@@ -50,7 +54,7 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/Users"
-        400:
+        404:
           $ref: "#/components/responses/404"      
   
   /api/admin/users/:
@@ -112,6 +116,53 @@ paths:
         404:
           $ref: "#/components/responses/404"        
 
+  /api/admin/ordes/:
+    post:
+      tags:
+        - admin/orders
+      summary: Create new order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Orders"
+      responses:
+        201:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Orders"
+        403:
+          $ref: "#/components/responses/403"
+        404:
+          $ref: "#/components/responses/404"            
+
+  /api/orders/{id}:
+    parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+    get:
+      tags:
+        - orders
+      summary: List order by ID
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Orders"
+        404:
+          $ref: "#/components/responses/404"         
+
 components:
   schemas:
     Users:
@@ -146,6 +197,43 @@ components:
                 type: string
               state:
                 type: string            
+    Orders:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: string
+          userId:
+            type: string
+          deliveryAddres:
+            type: object
+            properties:
+              street:
+                type: string
+              number:
+                type: string
+              complement:
+                type: string
+              zipCode:
+                type: string
+              city:
+                type: string
+              state:
+                type: string
+          items:
+            type: array
+            items:
+              type: object
+              properties:
+                productId:
+                  type: string
+                amount:
+                  type: number
+                discount:
+                  type: number
+                unitPrice:
+                  type: number
 
   responses:
     200:
