@@ -26,24 +26,12 @@ paths:
       responses: 
         200:
           description: Success
-          headers:
-            id:
-              schema: 
-                type: string
-            name:
-              schema:
-                type: string
-            status:
-              schema:
-                type: string
           content:
             application/json:
               schema:
                 type: array
                 items:
                   $ref: "#/components/schemas/Categories"
-        404:
-          $ref: "#/components/responses/404"
 
   /api/admin/categories:
     post:
@@ -71,8 +59,6 @@ paths:
                   $ref: "#/components/schemas/Categories"
         403:
           $ref: "#/components/responses/403"
-        404:
-          $ref: "#/components/responses/404"
 
   /api/categories/{id}:
     parameters:
@@ -88,16 +74,6 @@ paths:
       responses:
         200:
           description: Success
-          headers:
-            id:
-              schema: 
-                type: string
-            name:
-              schema:
-                type: string
-            status:
-              schema:
-                type: string
           content:
             application/json:
               schema:
@@ -178,8 +154,6 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/Products"
-        404:
-          $ref: "#/components/responses/404"
 
   /api/products/{id}:
     parameters:
@@ -195,36 +169,13 @@ paths:
       responses:
         200:
           description: Success
-          headers:
-            id:
-              schema:
-                type: string
-            name:
-              schema:
-                type: string
-            description:
-              schema:
-                type: string
-            slug:
-              schema:
-                type: string
-            unitPrice:
-              schema:
-                type: integer
-            storage:
-              schema:
-                type: integer
-            categoryId:
-              schema:
-                type: string
           content:
             application/json:
               schema:
                 type: array
                 items:
                   $ref: "#/components/schemas/Products"
-        404:
-          $ref: "#/components/responses/404"
+  
   /api/admin/products/:
     post:
       tags:
@@ -259,8 +210,7 @@ paths:
                   $ref: "#/components/schemas/Products"                      
         403: 
           $ref: "#/components/responses/403"
-        404:
-          $ref: "#/components/responses/404"
+
   /api/admin/products/{id}:
     parameters:
       - name: id
@@ -293,8 +243,7 @@ paths:
                   type: string
       responses:
         200:
-          $ref: "#/components/responses/200"
-        
+          $ref: "#/components/responses/200"        
         404:
           $ref: "#/components/responses/404"
 
@@ -309,7 +258,6 @@ paths:
           $ref: "#/components/responses/204"          
         404:
           $ref: "#/components/responses/404"
-
 
 components:
   schemas:
