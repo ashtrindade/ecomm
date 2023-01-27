@@ -1,0 +1,326 @@
+openapi: 3.0.3
+
+info:
+  version: 0.0.1
+  title: Ecomm Products API
+  description: |- 
+    ## Products Storage Management
+    
+    CRUD operations within the database.  
+tags:
+  - name: categories
+    description: Categories usage
+  - name: admin/categories
+    description: Admin access to categories
+  - name: products
+    description: Products usage
+  - name: admin/products
+    description: Admin access to products
+
+paths:
+  /api/categories:
+    get:
+      tags:
+        - categories
+      summary: List all categories
+      responses: 
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Categories"
+
+  /api/admin/categories:
+    post:
+      tags:
+        - admin/categories
+      summary: Create new category
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                status:
+                  type: string
+      responses:
+        201:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Categories"
+        403:
+          $ref: "#/components/responses/403"
+
+  /api/categories/{id}:
+    parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+    get:
+      tags:
+        - categories
+      summary: List category by ID
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Categories"
+        404:
+          $ref: "#/components/responses/404"
+
+  /api/admin/categories/{id}:
+    parameters:
+      - name: id
+        in: path
+        schema:
+         type: string
+        required: true
+    put:
+      tags:
+        - admin/categories
+      summary: Update category data by ID
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                status: 
+                  type: string
+      responses:
+        200:
+          description: Category Updated
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Categories"
+        404:
+          $ref: "#/components/responses/404"
+              
+    delete:
+      tags:
+        - admin/categories
+      summary: Delete category by ID
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              example: "Category deleted"
+
+    patch:
+      tags:
+        - admin/categories
+      summary: Update category status by ID
+      responses:
+        204:
+          description: Success
+          content:
+            application/json:
+              example: "Status Updated"
+        404:
+          $ref: "#/components/responses/404"
+
+  /api/products:
+    get:
+      tags:
+        - products
+      summary: List all products
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Products"
+
+  /api/products/{id}:
+    parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+    get:
+      tags:
+        - products
+      summary: List product by ID
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Products"
+  
+  /api/admin/products/:
+    post:
+      tags:
+        - admin/products
+      summary: Add new product
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                slug:
+                  type: string
+                unitPrice:
+                  type: integer
+                storage:
+                  type: integer
+                categoryId:
+                  type: string
+      responses:
+        201:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Products"                      
+        403: 
+          $ref: "#/components/responses/403"
+
+  /api/admin/products/{id}:
+    parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+
+    put:
+      tags:
+        - admin/products
+      summary: Update product data by ID
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                slug:
+                  type: string
+                unitPrice:
+                  type: integer
+                storage:
+                  type: integer
+                categoryId:
+                  type: string
+      responses:
+        200:
+          $ref: "#/components/responses/200"        
+        404:
+          $ref: "#/components/responses/404"
+
+    delete:
+      tags:
+        - admin/products
+      summary: Delete product by ID
+      responses:
+        200:
+          $ref: "#/components/responses/200"
+        204:
+          $ref: "#/components/responses/204"          
+        404:
+          $ref: "#/components/responses/404"
+
+components:
+  schemas:
+    Categories:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        status:
+          type: string
+    Products:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: string
+          name:
+            type: string
+          description:
+            type: string
+          slug:
+            type: string
+          unitPrice:
+            type: integer
+          storage:
+            type: integer
+          categoryId:
+            type: string
+        required:
+          - id
+          - name
+          - description
+          - slug
+          - unitPrice
+          - storage
+          - categoryId
+
+  responses:
+    200:
+      description: Success
+      content:
+        application/json:
+          example: "Success"
+    201:
+      description: Accepted
+      content:
+        application/json:
+          example: "Accepted"
+    204:
+      description: No content
+      content:
+        application/json:
+          example: "No content"           
+    404:
+      description: Not found
+      content: 
+        application/json:
+          example: "Not Found"
+    403:
+      description: Forbiden
+      content:
+        application/json:
+          example: "Access denied"

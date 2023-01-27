@@ -1,0 +1,170 @@
+openapi: 3.0.3
+
+info:
+  version: 0.0.1
+  title: Ecomm Users API
+  description: |- 
+    ## Users Management
+    
+    CRUD operations within the database.  
+tags:
+  - name: users
+    description: User accounts usage
+  - name: admin/users
+    description: Admin access to users
+paths:
+  /api/users/:
+    get:
+      tags:
+        - users
+      summary: List all users
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Users"
+
+  /api/users/{id}:
+    parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+    get:
+      tags:
+        - users
+      summary: List user by ID
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Users"
+        404:
+          $ref: "#/components/responses/404"      
+  
+  /api/admin/users/:
+    post:
+      tags:
+        - admin/users
+      summary: Create new user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Users"
+      responses:
+        201:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Users"
+        403:
+          $ref: "#/components/responses/403"     
+
+  /api/admin/users/{id}:
+    parameters:
+      - name: id
+        in: path
+        schema:
+          type: string
+        required: true
+    put:
+      tags:
+        - admin/users
+      summary: Update user data by ID
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Users"
+      responses:
+        200:
+          $ref: "#/components/responses/200"
+        
+        404:
+          $ref: "#/components/responses/404"      
+
+    delete:
+      tags:
+        - admin/users
+      summary: Delete user by ID
+      responses:
+        200:
+          $ref: "#/components/responses/200"
+        204:
+          $ref: "#/components/responses/204"          
+        404:
+          $ref: "#/components/responses/404"        
+
+components:
+  schemas:
+    Users:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: string
+          name:
+            type: string
+          email:
+            type: string
+          password:
+            type: string
+          cpf:
+            type: string
+          phone:
+            type: string
+          address:
+            type: object
+            properties:
+              street:
+                type: string
+              number:
+                type: string
+              complement:
+                type: string
+              zipCode:
+                type: string
+              city: 
+                type: string
+              state:
+                type: string 
+  responses:
+    200:
+      description: Success
+      content:
+        application/json:
+          example: "Success"
+    201:
+      description: Accepted
+      content:
+        application/json:
+          example: "Accepted"
+    204:
+      description: No content
+      content:
+        application/json:
+          example: "No content"           
+    404:
+      description: Not found
+      content: 
+        application/json:
+          example: "Not Found"
+    403:
+      description: Forbiden
+      content:
+        application/json:
+          example: "Access denied"                
