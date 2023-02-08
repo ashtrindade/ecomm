@@ -19,6 +19,8 @@ services:
   mysql-ecomm:
     image: mysql
     restart: always
+    volumes:
+      - $PWD/data:/var/lib/mysql
     environment:
       MYSQL_ROOT_USER: root
       MYSQL_ROOT_PASSWORD: secret
