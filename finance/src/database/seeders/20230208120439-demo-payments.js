@@ -6,20 +6,20 @@ module.exports = {
     await queryInterface.bulkInsert('Payments', [
       {
         amount: 100,
-        cardHolder: 'Jane Doe',
-        cardNumber: '123456789000',
-        cardExp: '2030-01',
-        cardCvv: '232',
+        cardHolder: 'Isabella Rocha',
+        cardNumber: '5484558414684333',
+        cardExp: '2023-07',
+        cardCvv: '501',
         status: 'Created',
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         amount: 3000,
-        cardHolder: 'Jhon Doe',
-        cardNumber: '012345678900',
-        cardExp: '2023-10',
-        cardCvv: '563',
+        cardHolder: 'Noah Ferreira',
+        cardNumber: '4556487987422903',
+        cardExp: '2024-08',
+        cardCvv: '321',
         status: 'Created',
         createdAt: new Date(),
         updatedAt: new Date()
