@@ -7,6 +7,5 @@ router
     .get('/api/admin/payments', PaymentController.getAllPayments)
     .get('/api/admin/payments/:id', PaymentController.getPaymentById)
     .post('/api/admin/payments/', PaymentController.addNewPayment)
-    .put('/api/admin/payments/:id', PaymentController.updateStatus)
-
+    .patch('/api/admin/payments/:id', PaymentController.updateStatus)
 module.exports = router

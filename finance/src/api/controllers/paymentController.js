@@ -45,12 +45,14 @@ class PaymentController {
         const { id } = req.params
         const updateStatus = req.body
         try {
-            await database.Payments.update(updateStatus, { where: { id: Number(id) } })
-            const newStatus = await database.Payments.findOne({
-                where: { id: Number(id) },
-                attributes: ['id', 'status']
-            })
-            return res.status(200).json(newStatus)
+            const currentStatus = await database.Payments.findOne({ where: { id: Number(id) } })
+
+            if (currentStatus.status === 'Created') {
+                await database.Payments.update(updateStatus, { where: { id: Number(id) } })
+                return res.status(200).send(`Status updated to ${updateStatus.status}`)
+            } else {
+                return res.status(403).send(`Status can not be changed`)
+            }
         } catch (error) {
             return res.status(500).json(error.message)
         }
