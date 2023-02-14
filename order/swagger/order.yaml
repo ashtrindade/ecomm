@@ -3,10 +3,10 @@ openapi: 3.0.3
 info:
   version: 0.0.1
   title: Ecomm Orders API
-  description: |- 
+  description: |-
     ## Orders Management
-    
-    CRUD operations within the database.  
+
+    CRUD operations within the database.
 tags:
 
   - name: orders
@@ -35,7 +35,7 @@ paths:
                   $ref: "#/components/schemas/Order"
         403:
           $ref: "#/components/responses/403"
-   
+
   /api/orders/{id}:
     parameters:
       - name: id
@@ -55,10 +55,10 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Order"       
+                  $ref: "#/components/schemas/Order"
 
 components:
-  schemas:           
+  schemas:
     Order:
       type: array
       items:
@@ -112,10 +112,10 @@ components:
       description: No content
       content:
         application/json:
-          example: "No content"           
+          example: "No content"    
     404:
       description: Not found
-      content: 
+      content:
         application/json:
           example: "Not Found"
     403:

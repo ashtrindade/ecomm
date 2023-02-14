@@ -3,10 +3,10 @@ openapi: 3.0.3
 info:
   version: 0.0.1
   title: Ecomm Users API
-  description: |- 
+  description: |-
     ## Users Management
-    
-    CRUD operations within the database.  
+
+    CRUD operations within the database.
 tags:
   - name: users
     description: User accounts usage
@@ -49,8 +49,8 @@ paths:
                 items:
                   $ref: "#/components/schemas/Users"
         404:
-          $ref: "#/components/responses/404"      
-  
+          $ref: "#/components/responses/404"
+
   /api/admin/users/:
     post:
       tags:
@@ -71,7 +71,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/Users"
         403:
-          $ref: "#/components/responses/403"     
+          $ref: "#/components/responses/403"
 
   /api/admin/users/{id}:
     parameters:
@@ -92,9 +92,9 @@ paths:
       responses:
         200:
           $ref: "#/components/responses/200"
-        
+
         404:
-          $ref: "#/components/responses/404"      
+          $ref: "#/components/responses/404"
 
     delete:
       tags:
@@ -104,9 +104,9 @@ paths:
         200:
           $ref: "#/components/responses/200"
         204:
-          $ref: "#/components/responses/204"          
+          $ref: "#/components/responses/204"
         404:
-          $ref: "#/components/responses/404"        
+          $ref: "#/components/responses/404"
 
 components:
   schemas:
@@ -138,10 +138,10 @@ components:
                 type: string
               zipCode:
                 type: string
-              city: 
+              city:
                 type: string
               state:
-                type: string 
+                type: string
   responses:
     200:
       description: Success
@@ -157,14 +157,14 @@ components:
       description: No content
       content:
         application/json:
-          example: "No content"           
+          example: "No content"
     404:
       description: Not found
-      content: 
+      content:
         application/json:
           example: "Not Found"
     403:
       description: Forbiden
       content:
         application/json:
-          example: "Access denied"                
+          example: "Access denied" 
