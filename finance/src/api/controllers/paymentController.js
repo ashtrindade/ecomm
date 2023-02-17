@@ -51,7 +51,7 @@ class PaymentController {
                 await database.Payments.update(updateStatus, { where: { id: Number(id) } })
                 return res.status(200).send(`Status updated to ${updateStatus.status}`)
             } else {
-                return res.status(403).send(`Status can not be changed`)
+                return res.status(409).send(`Status can not be changed`)
             }
         } catch (error) {
             return res.status(500).json(error.message)
