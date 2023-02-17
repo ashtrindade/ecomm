@@ -3,15 +3,6 @@ const validateStatusUpdate = require('../validations/validadeStatusUpadate')
 const validatePayment = require('../validations/validatePayment')
 
 class PaymentController {
-    static async getAllPayments(req, res) {
-        try {
-            const allPayments = await database.Payments.findAll()
-            return res.status(200).json(allPayments)
-        } catch (error) {
-            return res.status(500).json(error.message)
-        }
-    }
-
     static async getPaymentById(req, res) {
         const { id } = req.params
         try {
