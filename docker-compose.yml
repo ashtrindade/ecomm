@@ -25,7 +25,7 @@ services:
     image: mysql
     restart: always
     volumes:
-      - ./finace/:/app/finance
+      - ./finance/:/app/finance
     environment:
       MYSQL_ROOT_USER: root
       MYSQL_ROOT_PASSWORD: secret
