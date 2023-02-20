@@ -1,6 +1,7 @@
 const database = require('../../database/models')
 const validateStatusUpdate = require('../validations/validadeStatusUpadate')
 const validatePayment = require('../validations/validatePayment')
+const paymentStatus = require('../helpers/paymentStatus')
 
 class PaymentController {
     static async getPaymentById(req, res) {
@@ -24,7 +25,7 @@ class PaymentController {
         const addPayment = req.body
         try {
             const newPayment = await database.Payments.create(addPayment)
-            return res.status(201).json({ id: newPayment.id, status: 'Created' })
+            return res.status(201).json({ id: newPayment.id, status: paymentStatus.CREATED })
         } catch (error) {
             return res.status(500).json(error.message)
         }
@@ -39,7 +40,7 @@ class PaymentController {
         try {
             const currentStatus = await database.Payments.findOne({ where: { id: Number(id) } })
             if (!currentStatus) { return res.status(404).send(`Not found`) }
-            if (currentStatus.status === 'Created') {
+            if (currentStatus.status === paymentStatus.CREATED) {
                 await database.Payments.update(updateStatus, { where: { id: Number(id) } })
                 return res.status(200).send(`Status updated to ${updateStatus.status}`)
             } else {
