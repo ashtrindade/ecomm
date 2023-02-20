@@ -20,11 +20,12 @@ services:
         MONGO_INITDB_ROOT_PASSWORD: secret
     ports:
       - 27017:27017
-  mysql-ecomm:
+  finance-container:
+    build: ./finance/
     image: mysql
     restart: always
     volumes:
-      - $PWD/data:/var/lib/mysql
+      - ./finace/:/app/finance
     environment:
       MYSQL_ROOT_USER: root
       MYSQL_ROOT_PASSWORD: secret
