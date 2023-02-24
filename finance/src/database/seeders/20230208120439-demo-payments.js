@@ -10,7 +10,7 @@ module.exports = {
         cardNumber: '5484558414684333',
         cardExp: '2023-07',
         cardCvv: '501',
-        status: 'Created',
+        status: 'created',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -20,7 +20,7 @@ module.exports = {
         cardNumber: '4556487987422903',
         cardExp: '2024-08',
         cardCvv: '321',
-        status: 'Created',
+        status: 'created',
         createdAt: new Date(),
         updatedAt: new Date()
       }
