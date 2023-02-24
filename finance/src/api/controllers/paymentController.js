@@ -3,7 +3,7 @@ const validateStatusUpdate = require('../validations/validadeStatusUpadate')
 const validatePayment = require('../validations/validatePayment')
 const paymentStatus = require('../helpers/paymentStatus')
 
-class PaymentController {
+class PaymentController { 
     static async getPaymentById(req, res) {
         const { id } = req.params
         try {
