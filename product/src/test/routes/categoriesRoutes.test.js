@@ -61,7 +61,7 @@ describe('PUT /api/admin/categories/id', () => {
       .put(`/api/admin/categories/${id}`)
       .set('Accept', 'application/json')
       .send(param)
-      .expect(204)
+      .expect(200)
   })
 })
 
