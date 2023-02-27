@@ -36,7 +36,7 @@ describe('GET /api/accounts/id', () => {
 })
 
 describe('POST /api/admin/accounts', () => {
-  it.skip('Must create a user', async () => {
+  it('Must create a user', async () => {
     await request(app)
 
       .post(`/api/admin/accounts`)

@@ -37,7 +37,7 @@ describe('GET /api/categories/id', () => {
 })
 
 describe('POST /api/admin/categories', () => {
-  it.skip('Must create a category', async () => {
+  it('Must create a category', async () => {
     await request(app)
 
       .post(`/api/admin/categories`)

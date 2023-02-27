@@ -36,7 +36,7 @@ describe('GET /api/products/id', () => {
 })
 
 describe('POST /api/admin/products', () => {
-  it.skip('Must create a product', async () => {
+  it('Must create a product', async () => {
     await request(app)
 
       .post(`/api/admin/products`)
