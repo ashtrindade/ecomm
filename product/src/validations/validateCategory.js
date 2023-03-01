@@ -9,8 +9,8 @@ const validateCategory = (category) => {
         status: joi.string()
     })
 
-    const result = schema.validate(category);
-    return result;
+    const result = schema.validate(category)
+    return result
 }
 
 module.exports = validateCategory
