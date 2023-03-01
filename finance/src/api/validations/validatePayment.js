@@ -26,8 +26,8 @@ const validatePayment = (payment) => {
                 .required()
     })
 
-    const result = schema.validate(payment);
-    return result;
+    const result = schema.validate(payment)
+    return result
 }
 
 module.exports = validatePayment

@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const { describe, it, expect } = require('@jest/globals')
 const request = require('supertest')
 const app = require('../../index')
@@ -29,7 +30,7 @@ describe('POST /api/payments', () => {
     it('Must create a payment', async () => {
         const response = await request(app)
 
-            .post(`/api/payments`)
+            .post('/api/payments')
             .send({
                 amount: 3000,
                 cardHolder: 'Noah Ferreira',

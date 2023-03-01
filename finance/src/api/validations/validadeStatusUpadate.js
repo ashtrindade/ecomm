@@ -8,8 +8,8 @@ const validateStatusUpdate = (status) => {
                 .equal('canceled')
     })
 
-    const result = schema.validate(status);
-    return result;
+    const result = schema.validate(status)
+    return result
 }
 
 module.exports = validateStatusUpdate
