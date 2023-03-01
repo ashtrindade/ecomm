@@ -1,5 +1,5 @@
-import { accounts } from '../src/use-case/accounts.js'
-import {changeUserNameUseCase} from '../src/use-case/changeUserName.js'
+const accounts = require('../src/use-case/accounts')
+const changeUserNameUseCase = require('../src/use-case/changeUserName.js')
 
 // 'email', 'newName'
 changeUserNameUseCase()

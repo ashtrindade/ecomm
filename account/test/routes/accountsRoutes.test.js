@@ -1,102 +1,107 @@
+// eslint-disable-next-line no-unused-vars
 const { describe, it, expect } = require('@jest/globals')
 const request = require('supertest')
 const app = require('../../src/index')
 
 let server
+// eslint-disable-next-line no-undef
 beforeEach(() => {
-  const port = 3000
-  server = app.listen(port)
+    const port = 3000
+    server = app.listen(port)
 })
 
+// eslint-disable-next-line no-undef
 afterEach(() => {
-  server.close()
+    server.close()
 })
 
 describe('GET /api/accounts', () => {
-  it('Must list all accounts', async () => {
-    await request(app)
+    it('Must list all accounts', async () => {
+        await request(app)
 
-      .get(`/api/accounts`)
-      .expect('content-type', /json/)
-      .set('Accept', 'application/json')
-      .expect(200)
-  })
+            .get('/api/accounts')
+            .expect('content-type', /json/)
+            .set('Accept', 'application/json')
+            .expect(200)
+    })
 })
 
 describe('GET /api/accounts/id', () => {
-  it('Must detail a user', async () => {
-    const id = '63f8f82a32b9f1957bedd4db'
-    await request(app)
+    it('Must detail a user', async () => {
+        const id = '63f8f82a32b9f1957bedd4db'
+        await request(app)
 
-      .get(`/api/accounts/${id}`)
-      .expect('content-type', /json/)
-      .set('Accept', 'application/json')
-      .expect(200)
-  })
+            .get(`/api/accounts/${id}`)
+            .expect('content-type', /json/)
+            .set('Accept', 'application/json')
+            .expect(200)
+    })
 })
 
 describe('POST /api/admin/accounts', () => {
-  it('Must create a user', async () => {
-    await request(app)
+    it('Must create a user', async () => {
+        await request(app)
 
-      .post(`/api/admin/accounts`)
-      .set('Accept', 'application/json')
-      .send({
-        name: 'Joel Miller',
-        email: 'joel.miller@example.com',
-        password: '40f2m@nF',
-        createdDate: ISODate(),
-        cpf: '95153544044',
-        phone: '5511991699139',
-        address: {
-          street: 'Avenida Macambira',
-          number: '781',
-          neighborhood: 'Residencial Jardim Leblon',
-          complement: 'Ap 205',
-          zipCode: '74455366',
-          city: 'Goiânia',
-          state: 'GO'
-        }
-      })
-      .expect(201)
-  })
+            .post('/api/admin/accounts')
+            .set('Accept', 'application/json')
+            .send({
+                name: 'Joel Miller',
+                email: 'joel.miller@example.com',
+                password: '40f2m@nF',
+                // eslint-disable-next-line no-undef
+                createdDate: ISODate(),
+                cpf: '95153544044',
+                phone: '5511991699139',
+                address: {
+                    street: 'Avenida Macambira',
+                    number: '781',
+                    neighborhood: 'Residencial Jardim Leblon',
+                    complement: 'Ap 205',
+                    zipCode: '74455366',
+                    city: 'Goiânia',
+                    state: 'GO'
+                }
+            })
+            .expect(201)
+    })
 })
 
 describe('PUT /api/admin/accounts/id', () => {
-  it('Must update a user', async () => {
-    const id = '63f8f82a32b9f1957bedd4db'
-    await request(app)
+    it('Must update a user', async () => {
+        const id = '63f8f82a32b9f1957bedd4db'
+        await request(app)
 
-      .put(`/api/admin/accounts/${id}`)
-      .set('Accept', 'application/json')
-      .send({
-        name: 'Joel Miller',
-        email: 'joel.miller@example.com',
-        password: '40f2m@nF',
-        createdDate: ISODate(),
-        cpf: '95153544044',
-        phone: '5511991699139',
-        address: {
-          street: 'Avenida Macambira',
-          number: '781',
-          neighborhood: 'Residencial Jardim Leblon',
-          complement: 'Ap 205',
-          zipCode: '74455366',
-          city: 'Goiânia',
-          state: 'GO'
-        }
-      })
-      .expect(200)
-  })
+            .put(`/api/admin/accounts/${id}`)
+            .set('Accept', 'application/json')
+            .send({
+                name: 'Joel Miller',
+                email: 'joel.miller@example.com',
+                password: '40f2m@nF',
+                // eslint-disable-next-line no-undef
+                createdDate: ISODate(),
+                cpf: '95153544044',
+                phone: '5511991699139',
+                address: {
+                    street: 'Avenida Macambira',
+                    number: '781',
+                    neighborhood: 'Residencial Jardim Leblon',
+                    complement: 'Ap 205',
+                    zipCode: '74455366',
+                    city: 'Goiânia',
+                    state: 'GO'
+                }
+            })
+            .expect(200)
+    })
 })
 
 describe('DELETE /api/admin/accounts/id', () => {
-  it('Must delete a user', async () => {
-    const id = '63f8f82a32b9f1957bedd4db'
+    it('Must delete a user', async () => {
+        const id = '63f8f82a32b9f1957bedd4db'
 
-    await request(app)
-      .delete(`/api/admin/accounts/${id}`)
-      .set('Accept', 'application/json')
-      .expect(204)
-  })
+        await request(app)
+            .delete(`/api/admin/accounts/${id}`)
+            .set('Accept', 'application/json')
+            .expect(204)
+    })
 })

@@ -1,6 +1,6 @@
-import {accounts} from './accounts.js'
+const accounts = require('./accounts')
 
-export function searchUserAccountByEmailUseCase(email) {
+function searchUserAccountByEmailUseCase(email) {
     const userByEmail = accounts.filter((user) => user.email === email)
     if (userByEmail == ''){
         return 'Email not found.'
@@ -9,3 +9,5 @@ export function searchUserAccountByEmailUseCase(email) {
         return userByEmail
     }
 }
+
+module.export = searchUserAccountByEmailUseCase()

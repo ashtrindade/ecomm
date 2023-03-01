@@ -1,6 +1,6 @@
-import {accounts} from './accounts.js'
+const accounts = require('./accounts')
 
-export function changeUserNameUseCase(email, newName) {
+function changeUserNameUseCase(email, newName) {
     const userByEmail = accounts.find((user) => user.email === email)    
     if (userByEmail) {
         const userIndex = accounts.findIndex((user) => user.email === email)
@@ -10,3 +10,5 @@ export function changeUserNameUseCase(email, newName) {
         return false
     }
 }
+
+module.export = changeUserNameUseCase()
