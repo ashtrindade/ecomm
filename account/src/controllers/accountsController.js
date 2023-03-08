@@ -1,12 +1,12 @@
 const accounts = require('../models/account')
+const encryptPassword = require('../helpers/passwordEncrypt')
 const validateAccount = require('../validations/validateAccount')
-
 class AccountsController {
 
     static listAllAccounts = (req, res) => {
-        accounts.find((err, Accounts) => {
+        accounts.find((err, accounts) => {
             console.log(err)
-            res.status(200).json(Accounts)
+            res.status(200).json(accounts)
         })
     }
 
@@ -14,7 +14,7 @@ class AccountsController {
         const { id } = req.params
         accounts.findById(id, (err, account) => {
             if (err) {
-                res.status(500).send({message: err.message})
+                res.status(500).send({ message: err.message })
             } else {
                 res.status(200).json(account)
             }
@@ -22,14 +22,16 @@ class AccountsController {
     }
 
     static createNewAccount = (req, res) => {
-        const { error } = validateAccount(req.body)
+        const { error } = validateAccount()
         if (error) throw error
 
-        const account = new accounts(req.body)
+        const hashPassword = encryptPassword(req.body.password)
+        req.body.password = hashPassword
 
+        const account = new accounts(req.body)
         account.save((err) => {
             if (err) {
-                res.status(500).send({message: `${err.message} - Failed`})
+                res.status(500).send({ message: `${err.message} - Failed` })
             } else {
                 res.status(201).send(account.toJSON())
             }
