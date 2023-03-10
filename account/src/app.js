@@ -2,6 +2,9 @@ const express = require('express')
 const routes = require('./routes/index')
 const db = require('./config/dbConnect')
 const PORT = process.env.PORT || 3005
+const passport = require('passport')
+
+require('dotenv').config()
 
 db.on('error', console.log.bind(console, '🔴 - Error'))
 db.once('open', () => {
@@ -9,7 +12,9 @@ db.once('open', () => {
 })
 
 const app = express()
-app.use(express.json())
+
+require('./config/passport')(passport)
+app.use(passport.initialize())
 
 routes(app)
 
