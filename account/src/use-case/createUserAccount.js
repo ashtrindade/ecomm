@@ -1,6 +1,6 @@
-import {accounts} from './accounts.js'
+const accounts = require('./accounts')
 
-export function createUserUseCase(name, email, password) {
+function createUserUseCase(name, email, password) {
     accounts.push({
         id: accounts.length + 1,
         name: name,
@@ -11,3 +11,5 @@ export function createUserUseCase(name, email, password) {
 
     return accounts[accounts.length - 2]
 }
+
+module.export = createUserUseCase()

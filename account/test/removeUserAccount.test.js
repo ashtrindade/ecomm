@@ -1,5 +1,5 @@
-import { accounts } from '../src/use-case/accounts.js'
-import {removeUserUseCase} from '../src/use-case/removeUserAccount.js'
+const accounts = require('../src/use-case/accounts')
+const removeUserUseCase = require('../src/use-case/removeUserAccount.js')
 
 // 'email'
 removeUserUseCase()

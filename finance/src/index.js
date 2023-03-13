@@ -6,6 +6,6 @@ const app = express()
 
 routes(app)
 
-app.listen(PORT, () => console.log(`🟢 - Server running on PORT ${PORT}`))
+app.listen(PORT)
 
 module.exports = app

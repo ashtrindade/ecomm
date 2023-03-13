@@ -3,7 +3,7 @@ const category = require('./categoriesRoutes')
 
 const routes = (app) => {
     app.route('/').get((req, res) => {
-        res.status(200).json({ "Ecomm API": "Home" })
+        res.status(200).json({ 'Ecomm API': 'Home' })
     })
 
     app.use(

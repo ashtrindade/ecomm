@@ -1,4 +1,4 @@
-import {searchUserAccountByUfUseCase} from '../src/use-case/searchUserAccountByUf.js'
+const searchUserAccountByUfUseCase = require('../src/use-case/searchUserAccountByUf.js')
 
 // 'uf'
 console.log(searchUserAccountByUfUseCase())

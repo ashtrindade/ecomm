@@ -1,5 +1,5 @@
-import { accounts } from '../src/use-case/accounts.js'
-import {createUserUseCase} from '../src/use-case/createUserAccount.js'
+const accounts = require('../src/use-case/accounts')
+const createUserUseCase = require('../src/use-case/createUserAccount.js')
 
 // 'name', 'email', 'password'
 createUserUseCase()

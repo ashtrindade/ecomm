@@ -1,5 +1,5 @@
 let address = []
-export function createUserAddressUseCase(logradouro, numero, complemento, bairro, cep, cidade, uf){
+function createUserAddressUseCase(logradouro, numero, complemento, bairro, cep, cidade, uf){
     address = {
         logradouro: logradouro,
         numero: numero,
@@ -9,20 +9,22 @@ export function createUserAddressUseCase(logradouro, numero, complemento, bairro
         cidade: cidade,
         uf: uf
     }
-    return address;
+    return address
 }
 
-export function insertUserAddressUseCase(array, email, address){
-    let found = 0;
+function insertUserAddressUseCase(array, email, address){
+    let found = 0
     array.forEach(function(item) {
         if ((item.email).includes(email)){
-            item.address = address;
-            found++;
+            item.address = address
+            found++
         }
     })
     if (found === 0){
-        console.log("Error: Email not found.");
+        console.log('Error: Email not found.')
     } else {
-        console.log("Success: Address updated.")
+        console.log('Success: Address updated.')
     }
 }
+
+module.export = createUserAddressUseCase(), insertUserAddressUseCase()

@@ -1,7 +1,6 @@
 FROM node:18
 WORKDIR /app/product
-COPY package*.json .
+COPY . .
 RUN npm install
 EXPOSE 8001
-COPY . .
 ENTRYPOINT npm start

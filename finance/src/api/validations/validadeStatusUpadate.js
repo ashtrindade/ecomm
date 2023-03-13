@@ -4,12 +4,12 @@ const validateStatusUpdate = (status) => {
     const schema = joi.object().keys({
         status:
             joi.string()
-                .equal('Confirmed')
-                .equal('Canceled')
+                .equal('confirmed')
+                .equal('canceled')
     })
 
-    const result = schema.validate(status);
-    return result;
+    const result = schema.validate(status)
+    return result
 }
 
 module.exports = validateStatusUpdate

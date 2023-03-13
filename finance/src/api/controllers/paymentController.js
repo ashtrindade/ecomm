@@ -3,7 +3,7 @@ const validateStatusUpdate = require('../validations/validadeStatusUpadate')
 const validatePayment = require('../validations/validatePayment')
 const paymentStatus = require('../helpers/paymentStatus')
 
-class PaymentController {
+class PaymentController { 
     static async getPaymentById(req, res) {
         const { id } = req.params
         try {
@@ -11,7 +11,7 @@ class PaymentController {
                 where: { id: Number(id) },
                 attributes: ['id', 'amount', 'cardHolder', 'cardNumber', 'cardExp', 'status', 'createdAt', 'updatedAt']
             })
-            if (!payment) { return res.status(404).send(`Not found`) }
+            if (!payment) { return res.status(404).send('Not found') }
             return res.status(200).json(payment)
         } catch (error) {
             return res.status(500).json(error.message)
@@ -39,12 +39,12 @@ class PaymentController {
         const updateStatus = req.body
         try {
             const currentStatus = await database.Payments.findOne({ where: { id: Number(id) } })
-            if (!currentStatus) { return res.status(404).send(`Not found`) }
+            if (!currentStatus) { return res.status(404).send('Not found') }
             if (currentStatus.status === paymentStatus.CREATED) {
                 await database.Payments.update(updateStatus, { where: { id: Number(id) } })
                 return res.status(200).send(`Status updated to ${updateStatus.status}`)
             } else {
-                return res.status(409).send(`Status can not be changed`)
+                return res.status(409).send('Status can not be changed')
             }
         } catch (error) {
             return res.status(500).json(error.message)
