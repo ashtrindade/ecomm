@@ -1,3 +1,25 @@
-# ecomm
-
+# Ecomm
 Projeto de Ecommerce criado durante o programa LevelUp da Alura
+
+## Table of contents
+
+- [Twelve-Factor App](#twelve-factor-app)
+
+## Twelve-Factor App
+
+<img alt="Passing: 6/12" src="https://img.shields.io/badge/Passing-11%2F12-brightgreen">
+
+| Factor | Description | Status |
+|--------|-------------|--------|
+| 1. Codebase | One codebase tracked in revision control, many deploys | <img alt="Pass" src="https://img.shields.io/badge/-Pass-brightgreen"> |
+| 2. Dependencies | Explicitly declare and isolate dependencies | <img alt="Pass" src="https://img.shields.io/badge/-Pass-brightgreen"> |
+| 3. Config | Store config in the environment | <img alt="Pass" src="https://img.shields.io/badge/-Pass-brightgreen"> |
+| 4. Backing services | Treat backing services as attached resources | <img alt="Pass" src="https://img.shields.io/badge/-Pass-brightgreen"> |
+| 5. Build, release, run | Strictly separate build and run stages | <img alt="Pass" src="https://img.shields.io/badge/-Pass-brightgreen"> |
+| 6. Processes | Execute the app as one or more stateless processes | <img alt="Pass" src="https://img.shields.io/badge/-Pass-brightgreen"> |
+| 7. Port binding | Export services via port binding | <img alt="Pass" src="https://img.shields.io/badge/-Pass-brightgreen"> |
+| 8. Concurrency | Scale out via the process model | <img alt="Fail" src="https://img.shields.io/badge/-Fail-red"> |
+| 9. Disposability | Maximize robustness with fast startup and graceful shutdown | <img alt="Pass" src="https://img.shields.io/badge/-Pass-brightgreen"> |
+| 10. Dev/prod parity | Keep development, staging, and production as similar as possible | <img alt="Pass" src="https://img.shields.io/badge/-Pass-brightgreen"> |
+| 11. Logs | Treat logs as event streams | <img alt="Pass" src="https://img.shields.io/badge/-Pass-brightgreen"> |
+| 12. Admin processes | Run admin/management tasks as one-off processes | <img alt="Pass" src="https://img.shields.io/badge/-Pass-brightgreen"> |
