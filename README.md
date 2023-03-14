@@ -8,8 +8,6 @@ Projeto de Ecommerce criado durante o programa LevelUp da Alura
 
 ## Twelve-Factor App
 
-<img alt="Passing: 6/12" src="https://img.shields.io/badge/Passing-11%2F12-brightgreen">
-
 | Factor | Description | Status |
 |--------|-------------|--------|
 | 1. Codebase | One codebase tracked in revision control, many deploys | <img alt="Pass" src="https://img.shields.io/badge/-Pass-brightgreen"> |
@@ -25,6 +23,7 @@ Projeto de Ecommerce criado durante o programa LevelUp da Alura
 | 11. Logs | Treat logs as event streams | <img alt="Pass" src="https://img.shields.io/badge/-Pass-brightgreen"> |
 | 12. Admin processes | Run admin/management tasks as one-off processes | <img alt="Pass" src="https://img.shields.io/badge/-Pass-brightgreen"> |
 
+[⬆ Back to top](#ecomm)
 ## Microservices Patterns
 
 | Pattern | Applicable |
@@ -34,7 +33,9 @@ Projeto de Ecommerce criado durante o programa LevelUp da Alura
 | API Gateway | Yes |
 | Process Aggregator | Yes |
 | Edge Services | Yes |
-| Single DB vs Multiple DBs | Multiple DBs |
+| Single DB vs Multiple DBs | Yes, Multiple DBs |
 | Asynchronous Events‌ | Yes |
 | Log Aggregation | Yes |
 | Metrics Aggregation | Yes |
+
+[⬆ Back to top](#ecomm)
