@@ -3,8 +3,11 @@ const validateCategory = require('../validations/validateCategory')
 class CategoryController {
     static listAllCategories = (req, res) => {
         categories.find((err, Categories) => {
-            console.log(err)
-            res.status(200).json(Categories)
+            if (err) {
+                res.status(500).send({message: err.message})
+            } else {
+                res.status(200).json(Categories)
+            }
         })
     }
 
@@ -31,6 +34,27 @@ class CategoryController {
             } else {
                 res.status(201).send(category.toJSON())
             }
+        })
+    }
+
+    static updateCategory = (req, res) => {
+        const { id } = req.params
+        categories.findByIdAndUpdate(id, { $set: req.body }, { new: true }, (err) => {
+            if (err) {
+                return res.status(500).send({ message: err.message })
+            }
+            return res.status(204).send({ message: 'Category successfully updated' })
+        })
+    }
+
+    static deleteCategory = (req, res) => {
+        const { id } = req.params
+
+        categories.findByIdAndDelete(id, (err) => {
+            if (err) {
+                return res.status(500).send({ message: err.message })
+            }
+            return res.status(204).send({ message: 'Category successfully deleted' })
         })
     }
 }
