@@ -4,6 +4,7 @@ Projeto de Ecommerce criado durante o programa LevelUp da Alura
 ## Table of contents
 
 - [Twelve-Factor App](#twelve-factor-app)
+- [Microservices Patterns](#microservices-patterns)
 
 ## Twelve-Factor App
 
@@ -23,3 +24,17 @@ Projeto de Ecommerce criado durante o programa LevelUp da Alura
 | 10. Dev/prod parity | Keep development, staging, and production as similar as possible | <img alt="Pass" src="https://img.shields.io/badge/-Pass-brightgreen"> |
 | 11. Logs | Treat logs as event streams | <img alt="Pass" src="https://img.shields.io/badge/-Pass-brightgreen"> |
 | 12. Admin processes | Run admin/management tasks as one-off processes | <img alt="Pass" src="https://img.shields.io/badge/-Pass-brightgreen"> |
+
+## Microservices Patterns
+
+| Pattern | Applicable |
+|---------|------------|
+| Domain Services | Yes |
+| Business Services | Yes |
+| API Gateway | Yes |
+| Process Aggregator | Yes |
+| Edge Services | Yes |
+| Single DB vs Multiple DBs | Multiple DBs |
+| Asynchronous Events‌ | Yes |
+| Log Aggregation | Yes |
+| Metrics Aggregation | Yes |
