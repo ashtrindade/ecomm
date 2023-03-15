@@ -7,6 +7,8 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: secret
+    ports:
+      - 3333:3333
   mongodb:
     image: mongo
     container_name: mongo-ecomm
@@ -45,6 +47,17 @@ services:
     depends_on:
       - mysql
 
+  api-gateway:
+    build: ./gateway
+    container_name: ecomm-api-gateway
+    volumes:
+      - ./gateway:/app/ecomm-api-gateway
+    ports:
+      - 3000:3000
+    depends_on:
+      - account-container
+      - finance-container
+      - product-container
 volumes:
   db-mongo-ecomm:
   db-mysql-ecomm:
