@@ -1,5 +1,4 @@
 const express = require('express')
-const passport = require('passport')
 const AccountsController = require('../controllers/accountsController')
 
 const router = express.Router()
@@ -7,7 +6,6 @@ const router = express.Router()
 router
     .get(
         '/api/accounts',
-        passport.authenticate('jwt', { session: false }),
         AccountsController.listAllAccounts
     )
     .get(
@@ -24,12 +22,10 @@ router
     )
     .put(
         '/api/accounts/:id',
-        passport.authenticate('jwt', { session: false }),
         AccountsController.updateAccount
     )
     .delete(
         '/api/accounts/:id',
-        passport.authenticate('jwt', { session: false }),
         AccountsController.deleteAccount
     )
 
