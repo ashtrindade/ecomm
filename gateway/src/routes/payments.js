@@ -7,7 +7,7 @@ require('dotenv').config({ path: path.resolve(__dirname, '../config/.env') })
 const paymentsRoutes = express.Router()
 
 const paymentsProxy = createProxyMiddleware(
-    `${process.env.ACCOUNTS_URL}:${process.env.ACCOUNTS_PORT}/api/payments`,
+    `${process.env.PAYMENST_URL}:${process.env.PAYMENST_PORT}/api/payments`,
     { changeOrigin: true }
 )
 
