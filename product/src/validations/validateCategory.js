@@ -4,7 +4,7 @@ const validateCategory = (category) => {
     const schema = joi.object().keys({
         name: joi.string()
             .min(3)
-            .pattern(new RegExp(/^[^0-9]/))
+            .pattern(new RegExp(/^\D/))
             .required(),
         status: joi.string()
     })
