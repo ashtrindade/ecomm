@@ -54,14 +54,28 @@ Projeto de Ecommerce criado durante o programa LevelUp da Alura
 
 ### Standardization of the service stacks
 
+All services are built with the same language (`Javascript`) and obey `eslint` rules.
+
 ### Service discovery solution
+
+Service discovery must be set to prevent server overload. Tools like `load balancer` are used to distribute requests between containers.
 
 ### Security aspects
 
+As an application that deal with sensitive data, cryptography must be used. Not only with customer info, but also with order history, which contain payments info as well.
+
+Network traffic must be managed with authentication, using tokens to prevent malicious and/or misuse access.
+
 ### Technologies for deploy and build
+
+Services like [Travis-CI](https://www.travis-ci.com/), [Jenkins](https://www.jenkins.io/) or something similar to [GitHub Actions](https://github.com/features/actions) can be used to provide a continuous integration and deployment enviroment.
 
 ### Handle fault tolerance in synchronous applications
 
+Tools like `cache` and `circuit breaker` must be used in synchronous applications to prevent overloads and to handle server side problems, such as inactivity, overloads and other events that might break the server.
+
 ### When to use asynchronous communication
+
+Asynchronous communication should be used within the order process. When a customer makes an order, the payment or other processes can take some time, so they should receive a response that the order is in process while the system does it's task.
 
 [⬆ Back to top](#ecomm)
