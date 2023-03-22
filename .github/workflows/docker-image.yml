@@ -1,0 +1,18 @@
+name: Docker Image CI
+
+on:
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run ESLint
+        uses: ninosaurus/eslint-check@v5
+        with:
+          eslint-rc: .eslintrc.js
+
+      - name: Run Jest
+        uses: stefanoeb/jest-action@1.0.4
