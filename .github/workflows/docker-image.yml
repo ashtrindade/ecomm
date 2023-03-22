@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Build check
 
 on:
   pull_request:
@@ -9,16 +9,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Run ESLint
-        uses: ninosaurus/eslint-check@v5
+    - name: ESLint Action eslintrc
+      uses: mrdivyansh/eslint-action@v1.0.7
 
-      - name: Run Jest
-        uses: stefanoeb/jest-action@1.0.4
-      
+    - name: Run Jest
+      uses: stefanoeb/jest-action@1.0.4
+
   build:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker-compose up
+      run: docker compose up
