@@ -1,10 +1,12 @@
 # Ecomm
+
 Projeto de Ecommerce criado durante o programa LevelUp da Alura
 
 ## Table of contents
 
 - [Twelve-Factor App](#twelve-factor-app)
 - [Microservices Patterns](#microservices-patterns)
+- [Microservices Aspects](#microservices-aspects)
 
 ## Twelve-Factor App
 
@@ -24,6 +26,7 @@ Projeto de Ecommerce criado durante o programa LevelUp da Alura
 | 12. Admin processes | Run admin/management tasks as one-off processes | <img alt="Pass" src="https://img.shields.io/badge/-Pass-brightgreen"> |
 
 [⬆ Back to top](#ecomm)
+
 ## Microservices Patterns
 
 | Pattern | Applicable |
@@ -37,5 +40,28 @@ Projeto de Ecommerce criado durante o programa LevelUp da Alura
 | Asynchronous Events‌ | Yes |
 | Log Aggregation | Yes |
 | Metrics Aggregation | Yes |
+
+[⬆ Back to top](#ecomm)
+
+## Microservices Aspects
+
+- [Standardization of the service stacks](#standardization-of-the-service-stacks)
+- [Service discovery solution](#service-discovery-solution)
+- [Security aspects](#security-aspects)
+- [Technologies for deploy and build](#technologies-for-deploy-and-build)
+- [Handle fault tolerance in synchronous applications](#handle-fault-tolerance-in-synchronous-applications)
+- [When to use asynchronous communication](#when-to-use-asynchronous-communication)
+
+### Standardization of the service stacks
+
+### Service discovery solution
+
+### Security aspects
+
+### Technologies for deploy and build
+
+### Handle fault tolerance in synchronous applications
+
+### When to use asynchronous communication
 
 [⬆ Back to top](#ecomm)
