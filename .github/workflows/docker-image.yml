@@ -9,8 +9,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Install Modules
-      run: npm i
     - name: ESLint Action eslintrc
       run: eslint . --ext .js, .cjs
 
