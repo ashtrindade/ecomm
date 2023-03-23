@@ -9,16 +9,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Install Modules
+      run: npm i
     - name: ESLint Action eslintrc
-      uses: mrdivyansh/eslint-action@v1.0.7
+      run: eslint . --ext .js, .cjs
 
     - name: Run Jest
       uses: stefanoeb/jest-action@1.0.4
-
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker compose up
