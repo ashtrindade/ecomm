@@ -12,18 +12,18 @@ Projeto de Ecommerce criado durante o programa LevelUp da Alura
 
 | Factor | Description | Status |
 |--------|-------------|--------|
-| 1. Codebase | One codebase tracked in revision control, many deploys | <img alt="Pass" src="https://img.shields.io/badge/-Pass-brightgreen"> |
-| 2. Dependencies | Explicitly declare and isolate dependencies | <img alt="Pass" src="https://img.shields.io/badge/-Pass-brightgreen"> |
-| 3. Config | Store config in the environment | <img alt="Pass" src="https://img.shields.io/badge/-Pass-brightgreen"> |
-| 4. Backing services | Treat backing services as attached resources | <img alt="Pass" src="https://img.shields.io/badge/-Pass-brightgreen"> |
-| 5. Build, release, run | Strictly separate build and run stages | <img alt="Pass" src="https://img.shields.io/badge/-Pass-brightgreen"> |
-| 6. Processes | Execute the app as one or more stateless processes | <img alt="Pass" src="https://img.shields.io/badge/-Pass-brightgreen"> |
-| 7. Port binding | Export services via port binding | <img alt="Pass" src="https://img.shields.io/badge/-Pass-brightgreen"> |
-| 8. Concurrency | Scale out via the process model | <img alt="Fail" src="https://img.shields.io/badge/-Fail-red"> |
-| 9. Disposability | Maximize robustness with fast startup and graceful shutdown | <img alt="Pass" src="https://img.shields.io/badge/-Pass-brightgreen"> |
-| 10. Dev/prod parity | Keep development, staging, and production as similar as possible | <img alt="Pass" src="https://img.shields.io/badge/-Pass-brightgreen"> |
-| 11. Logs | Treat logs as event streams | <img alt="Pass" src="https://img.shields.io/badge/-Pass-brightgreen"> |
-| 12. Admin processes | Run admin/management tasks as one-off processes | <img alt="Pass" src="https://img.shields.io/badge/-Pass-brightgreen"> |
+| 1. Codebase | One codebase tracked in revision control, many deploys | ✔ |
+| 2. Dependencies | Explicitly declare and isolate dependencies | ✔ |
+| 3. Config | Store config in the environment | ✔ |
+| 4. Backing services | Treat backing services as attached resources | ✔ |
+| 5. Build, release, run | Strictly separate build and run stages | ✔ |
+| 6. Processes | Execute the app as one or more stateless processes | ✔ |
+| 7. Port binding | Export services via port binding | ✔ |
+| 8. Concurrency | Scale out via the process model | ❌ |
+| 9. Disposability | Maximize robustness with fast startup and graceful shutdown | ✔ |
+| 10. Dev/prod parity | Keep development, staging, and production as similar as possible | ✔ |
+| 11. Logs | Treat logs as event streams | ✔ |
+| 12. Admin processes | Run admin/management tasks as one-off processes | ✔ |
 
 [⬆ Back to top](#ecomm)
 
@@ -54,11 +54,11 @@ Projeto de Ecommerce criado durante o programa LevelUp da Alura
 
 ### Standardization of the service stacks
 
-All services are built with the same language (`Javascript`) and obey `eslint` rules.
+All services are built in `node.js` using only `Common Javascript`. All services use `MongoDB` except `Payments`, that uses `mySQL`. Services run on a Docker container and are reachable through an Api Gateway.
 
 ### Service discovery solution
 
-Service discovery must be set to prevent server overload. Tools like `load balancer` are used to distribute requests between containers.
+Service discovery is needed to locate service instances in dynamically assigned network locations in a cloud-based microservices location. It helps the instances to adapt and balance the load among themselves.
 
 ### Security aspects
 
